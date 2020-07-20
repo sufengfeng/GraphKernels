@@ -584,5 +584,5 @@ DataSet = [
     ]
 ]
 if __name__ == "__main__":
-    print DataSet
-    print "debug"
+    print (DataSet)
+    print ("debug")
