@@ -6,6 +6,7 @@ import os
 from LBP import LBPH
 from LBP.MP_LBP import multi_scale_block_LBP
 from LBP.rotation_invariant_LBP import rotation_invariant_LBP
+from LBP.uniform_pattern_LBP import uniform_pattern_LBP
 
 sys.path.append('../')
 
@@ -57,7 +58,9 @@ if __name__ == '__main__':
         res1 = Gabor.process(img, filters)
         #res1 = img
         #lbp_img = multi_scale_block_LBP(res1, 5)
-        lbp_img = lbp_img = rotation_invariant_LBP(res1)    #使用旋转不变性
+        lbp_img = rotation_invariant_LBP(res1,radius=10)    #使用旋转不变性
+        #lbp_img = uniform_pattern_LBP(res1)  # 使用旋转不变性
+
         image_H[i] = LBPH.getLBPH(lbp_img, NUM_PATTERNS, 8, 8, False)
         if i == 15:
             break
