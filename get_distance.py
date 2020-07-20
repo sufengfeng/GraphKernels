@@ -5,6 +5,8 @@
 
 
 # 计算点到图中其他点的距离
+from points_compare import GetPoint2PonitDistance
+
 
 def GetPonint2Graph(point, pointList):
     distanceList = []
