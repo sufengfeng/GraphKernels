@@ -1,11 +1,7 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- coding:utf-8 -*-
 
-# 计算点与点之间距离
 
-def GetPoint2PonitDistance(pointA, pointB):
-    distance = ((pointA[0] - pointB[0]) ** 2 + (pointA[1] - pointB[1]) ** 2) ** 0.5
-    return distance
 
 
 # 计算点到图中其他点的距离
