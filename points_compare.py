@@ -47,10 +47,7 @@ if __name__ == "__main__":
     print(
         "************************************************************************************************************")
 
-    for i in range(len(graphDiatanceList)):
-        for j in range(len(graphDiatanceList)):
-            print('Categary_%d_Num%d与Categary_%d_Num%d:%f' % (i / 5, i % 5, j / 5, j % 5, getDifferenceSum(graphDiatanceList[i], graphDiatanceList[j])))
-        print('*******************************************************************')
+
     print("debug")
     print("debug")
     '''
