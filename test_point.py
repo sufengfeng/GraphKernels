@@ -205,7 +205,7 @@ if __name__ == "__main__":
         pointsList = TestPointData[j]
         distanceList = GetPonints2DistanceList(pointsList)
         testPointList.append(distanceList)
-    print(testPointList)
+    # print(testPointList)
 
     basicPointList = []
 
@@ -213,10 +213,12 @@ if __name__ == "__main__":
         pointsList = BasicDataSet[j]
         distanceList = GetPonints2DistanceList(pointsList)
         basicPointList.append(distanceList)
-    print(basicPointList)
+    # print(basicPointList)
 
     print("************************************************************************************************************")
     for i in range(len(testPointList)):
         print('*********************************    %d   **********************************' % (i % 10))
         for j in range(len(basicPointList)):
-            print('Test_Num%d与Basic_Num%d:%d' % (i, j, FindBestMatchAdvance(testPointList[i], basicPointList[j])))
+            isMatch=FindBestMatchAdvance(testPointList[i], basicPointList[j])
+            if isMatch:
+                print('Test_Num%d与Basic_Num%d:%d' % (i, j, isMatch))
