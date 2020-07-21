@@ -1,3 +1,5 @@
+from collections import Counter
+
 from BasicDataSet import BasicDataSet
 from fandedge import FindBestMatchAdvance
 from points_compare import GetPonints2DistanceList
@@ -205,20 +207,34 @@ if __name__ == "__main__":
         pointsList = TestPointData[j]
         distanceList = GetPonints2DistanceList(pointsList)
         testPointList.append(distanceList)
-    # print(testPointList)
+    #print(testPointList)
 
     basicPointList = []
 
     for j in range(len(BasicDataSet)):
         pointsList = BasicDataSet[j]
-        distanceList = GetPonints2DistanceList(pointsList)
-        basicPointList.append(distanceList)
-    # print(basicPointList)
+        for i in range(len(pointsList)):
+            distanceList = GetPonints2DistanceList(pointsList[i])
+            basicPointList.append(distanceList)
+    #print(basicPointList)
 
     print("************************************************************************************************************")
     for i in range(len(testPointList)):
-        print('*********************************    %d   **********************************' % (i % 10))
+        matchList = []
+        #print('*********************************    %d   **********************************' % (i % 10))
         for j in range(len(basicPointList)):
+
+            matchNumList=[]
             isMatch=FindBestMatchAdvance(testPointList[i], basicPointList[j])
             if isMatch:
-                print('Test_Num%d与Basic_Num%d:%d' % (i, j, isMatch))
+                matchList.append(j)
+                #print('Test_Num%d与Basic_Num%d:%d' % (i, j, isMatch))
+            for k in range(len(matchList)):
+                 matchNumList.append(matchList[k]//5)
+        if matchNumList:
+            direct_test=Counter(matchNumList)
+            max = -1
+            for num in direct_test:
+                if num >max:
+                    max=num
+            print("Test_Num%d beyongd %d"%(i,num) )
