@@ -48,7 +48,7 @@ if __name__ == '__main__':
     # 读取数据
     NUM_PATTERNS = 59
     filters = Gabor.build_filters()
-    image_path = './images/'
+    image_path = 'images_cp/'
     filenames = os.listdir(image_path)
     filenames.sort()
     image_H = np.ndarray(shape=(len(filenames), 64 * NUM_PATTERNS))
